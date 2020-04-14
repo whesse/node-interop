@@ -271,7 +271,7 @@ abstract class HttpHeaders implements io.HttpHeaders {
   }
 
   @override
-  void add(String name, Object value) {
+  void add(String name, Object value, {bool preserveHeaderCase: false}) {
     List<String> existingValues = this[name];
     var values = existingValues != null ? List.from(existingValues) : [];
     values.add(value.toString());
@@ -312,7 +312,7 @@ abstract class HttpHeaders implements io.HttpHeaders {
   }
 
   @override
-  void set(String name, Object value) {
+  void set(String name, Object value, {bool preserveHeaderCase: false}) {
     _setHeader(name, jsify(value));
   }
 }
